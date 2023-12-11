@@ -593,6 +593,15 @@ video {
   background-color: hsl(240, 11%, 91%, 0.4);
 }
 
+.bg-graya-600 {
+  background-color: hsl(240, 24%, 96%, 0.4);
+}
+
+.bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(240 11% 91% / var(--tw-bg-opacity));
+}
+
 .p-2 {
   padding: 0.5rem;
 }
