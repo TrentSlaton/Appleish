@@ -1,7 +1,41 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+{{ .Content }}
+{{ range site.RegularPages }}
+<article class="m-auto flex max-w-4xl flex-col gap-5 rounded-xl bg-gray-600 p-4 shadow-md">
+    <div class="flex gap-5">
+        <a href="{{ .Params.link }}" title="View live demo." target="_blank" rel="noopener">
+            <figure>
+                <img class="h-48 w-48 max-w-none rounded-xl" src="{{ .Params.thumbnail }}" alt="{{ .Params.thumbnailAlt }}">
+            </figure>
+        </a>
+        <div class="post-link flex flex-col gap-4">
+            <header class="text-left text-2xl font-normal">
+                <a class="text-blue" href="{{ .Params.link }}" title="View live demo." target="_blank" rel="noopener">
+                    {{ .Title }}
+                </a>
+            </header>
+            <p class="text-left text-xl font-extralight">{{ .Summary }}</p>
+            <p class="mt-auto text-left text-xl font-light">{{ .Date.Format "Monday, January 2, 2006" }}</p>
+        </div>
+    </div>
+    <hr>
+    <footer class="flex items-center gap-4">
+        {{ range .Params.tags }}
+        <a href="/" title="Learn more about the XX tag.">
+            <p class="self-center rounded-xl bg-white p-3 font-mono text-sm text-blue shadow-md">
+                {{ . }}
+            </p>
+        </a>
+        {{ end }}
+        <div class="link-container ml-auto flex gap-2.5">
+            <a class="w-10 rounded-full shadow-md" href="{{ .Params.githubLink }}" title="View source code on GitHub." target="_blank" rel="noopener">
+                <img src="github-mark.svg" alt="github logo">
+            </a>
+            <a class="w-10 rounded-full bg-white shadow-md" href="{{ .Params.femLink }}" title="View original challenge page on frontendmentor.io" target="_blank" rel="noopener">
+                <img src="frontendmentor.svg" alt="front end mentor logo">
+            </a>
+        </div>
+    </footer>
+</article>
+{{ end }}
 {{ end }}

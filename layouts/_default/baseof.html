@@ -5,14 +5,14 @@
   {{ partial "head.html" . }}
 </head>
 
-<body>
+<body class="min-w-300">
   {{ partial "navbar.html" . }}
   {{ if .IsHome }}
-  <header>
+  <header class="m-auto mb-2 max-w-7xl">
     {{ partial "header.html" . }}
   </header>
   {{ end }}
-  <main>
+  <main class="m-auto max-w-7xl text-center">
     {{ block "main" . }}{{ end }}
   </main>
   <footer>
