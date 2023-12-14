@@ -1,16 +1,17 @@
 {{ define "main" }}
 {{ .Content }}
-{{ range site.RegularPages }}
-<article class="m-auto flex max-w-4xl flex-col gap-5 rounded-xl bg-gray-600 p-4 shadow-md">
+{{ $pages := sort site.RegularPages "Params.title" }}
+{{ range $pages }}
+<article class="m-auto flex w-full max-w-4xl flex-col gap-5 rounded-xl bg-gray-600 p-4 shadow-md">
     <div class="flex gap-5">
-        <a href="{{ .Params.link }}" title="View live demo." target="_blank" rel="noopener">
+        <a href="{{ .Params.liveLink }}" title="View live demo." target="_blank" rel="noopener">
             <figure>
-                <img class="h-48 w-48 max-w-none rounded-xl" src="{{ .Params.thumbnail }}" alt="{{ .Params.thumbnailAlt }}">
+                <img class="h-48 w-48 max-w-none rounded-xl transition hover:-translate-y-0.5 hover:translate-x-0.5" src="{{ .Params.thumbnail }}" alt="{{ .Params.thumbnailAlt }}">
             </figure>
         </a>
         <div class="post-link flex flex-col gap-4">
             <header class="text-left text-2xl font-normal">
-                <a class="text-blue" href="{{ .Params.link }}" title="View live demo." target="_blank" rel="noopener">
+                <a class="text-blue" href="{{ .Params.liveLink }}" title="View live demo." target="_blank" rel="noopener">
                     {{ .Title }}
                 </a>
             </header>
@@ -21,18 +22,18 @@
     <hr>
     <footer class="flex items-center gap-4">
         {{ range .Params.tags }}
-        <a href="/" title="Learn more about the XX tag.">
-            <p class="self-center rounded-xl bg-white p-3 font-mono text-sm text-blue shadow-md">
+        <a href="/tags/{{- . }}" title="Learn more about the {{ . }} tag.">
+            <p class="self-center rounded-xl bg-white p-3 font-mono text-sm text-blue shadow-md transition hover:-translate-y-0.5 hover:translate-x-0.5">
                 {{ . }}
             </p>
         </a>
         {{ end }}
         <div class="link-container ml-auto flex gap-2.5">
-            <a class="w-10 rounded-full shadow-md" href="{{ .Params.githubLink }}" title="View source code on GitHub." target="_blank" rel="noopener">
-                <img src="github-mark.svg" alt="github logo">
+            <a class="w-10 rounded-full shadow-md transition hover:-translate-y-0.5 hover:translate-x-0.5" href="{{ .Params.githubLink }}" title="View source code on GitHub." target="_blank" rel="noopener">
+                <img src="/github-mark.svg" alt="github logo">
             </a>
-            <a class="w-10 rounded-full bg-white shadow-md" href="{{ .Params.femLink }}" title="View original challenge page on frontendmentor.io" target="_blank" rel="noopener">
-                <img src="frontendmentor.svg" alt="front end mentor logo">
+            <a class="w-10 rounded-full bg-white shadow-md transition hover:-translate-y-0.5 hover:translate-x-0.5" href="{{ .Params.femLink }}" title="View original challenge page on frontendmentor.io" target="_blank" rel="noopener">
+                <img class="m-auto align-middle" src="/frontendmentor.svg" alt="front end mentor logo">
             </a>
         </div>
     </footer>

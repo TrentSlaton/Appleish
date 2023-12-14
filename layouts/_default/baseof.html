@@ -12,8 +12,9 @@
     {{ partial "header.html" . }}
   </header>
   {{ end }}
-  <main class="m-auto max-w-7xl text-center">
+  <main class="m-auto flex max-w-7xl flex-col gap-6 text-center">
     {{ block "main" . }}{{ end }}
+    {{ if .Param "nextprev" }}{{ partial "nextprev.html" . -}}{{ end -}}
   </main>
   <footer>
     {{ partial "footer.html" . }}
