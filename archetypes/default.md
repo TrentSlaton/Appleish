@@ -5,6 +5,6 @@ liveLink = ""
 githubLink = ""
 femLink = ""
 thumbnail = ""
-alt = ""
+thumbnailAlt = ""
 tags = []
 +++
