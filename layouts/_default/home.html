@@ -7,7 +7,7 @@
     <div class="flex gap-5">
         <a href="{{ .Params.liveLink }}" title="View live demo." target="_blank" rel="noopener">
             <figure>
-                <img class="h-48 w-48 max-w-none rounded-xl transition hover:-translate-y-0.5 hover:translate-x-0.5" src="{{ .Params.thumbnail }}" alt="{{ .Params.thumbnailAlt }}">
+                <img class="h-48 w-48 max-w-none rounded-xl transition hover:-translate-y-0.5 hover:translate-x-0.5" src="/{{ .Params.thumbnail }}" alt="{{ .Params.thumbnailAlt }}">
             </figure>
         </a>
         <div class="post-link flex flex-col">
@@ -24,7 +24,7 @@
     <footer class="flex items-center gap-4">
         {{ range .Params.tags }}
         <a href="/tags/{{- . }}" title="Learn more about the {{ . }} tag.">
-            <p class="self-center rounded-xl bg-white p-3 font-mono text-sm text-blue shadow-md transition hover:-translate-y-0.5 hover:translate-x-0.5">
+            <p class="text-blue self-center rounded-xl bg-white p-3 font-mono text-sm shadow-md transition hover:-translate-y-0.5 hover:translate-x-0.5">
                 {{ . }}
             </p>
         </a>
