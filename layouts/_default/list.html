@@ -26,7 +26,7 @@
   <hr>
   <footer class="flex items-center gap-4">
     {{ range .Params.tags }}
-    <a href="/Front-End-Mentor---Portfolio-Page/tags/{{- lower . -}}" title="Learn more about the {{- lower . -}} tag.">
+    <a href="/Front-End-Mentor---Portfolio-Page/tags/{{- lower . -}}" title="Learn more about the {{ . }} tag.">
       <p class="self-center rounded-xl bg-white p-3 font-mono text-sm text-blue shadow-md transition hover:-translate-y-0.5 hover:translate-x-0.5">
         {{ . }}
       </p>
